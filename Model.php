@@ -7,11 +7,12 @@ function getDB() {
 
 function getPosts() {
     $db = getDB();
-    return $db->query('
+    $statement = $db->query('
         SELECT id, creation_date, title, content
         FROM posts
         ORDER BY creation_date DESC
     ');
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getPost(int $post_id) {
