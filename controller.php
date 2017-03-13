@@ -12,7 +12,7 @@ function controllerPost(int $id) {
 }
 
 function controllerError(Exception $e) {
-    file_put_contents('errors.log', date('c') . ' - ' . $e->getMessage() . "\n");
+    file_put_contents('errors.log', date('c') . ' - ' . $e->getMessage() . "\n", FILE_APPEND);
     $errorMessage = $e->getMessage();
     require 'view_error.php';
 }
