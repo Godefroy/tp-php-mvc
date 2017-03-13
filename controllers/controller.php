@@ -2,17 +2,17 @@
 
 function controllerHome() {
     $posts = getPosts();
-    require 'view_home.php';
+    require 'views/home.php';
 }
 
 function controllerPost(int $id) {
     $post = getPost($id);
     $comments = getComments($id);
-    require 'view_post.php';
+    require 'views/post.php';
 }
 
 function controllerError(Exception $e) {
     file_put_contents('errors.log', date('c') . ' - ' . $e->getMessage() . "\n", FILE_APPEND);
     $errorMessage = $e->getMessage();
-    require 'view_error.php';
+    require 'views/error.php';
 }

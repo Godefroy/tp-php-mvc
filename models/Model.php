@@ -1,5 +1,5 @@
 <?php
-require_once 'NotFoundException.php';
+require_once 'classes/NotFoundException.php';
 
 function getDB() {
     return new PDO('mysql:host=localhost;dbname=tp_php_mvc;charset=utf8', 'root', 'ervbfd');
