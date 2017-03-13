@@ -1,6 +1,5 @@
 <?php
-require 'controllers/controller.php';
-require 'models/Model.php';
+require_once 'controllers/controller.php';
 
 try {
     // Récupération de l'action (choix du contrôleur) dans l'url

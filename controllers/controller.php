@@ -1,13 +1,15 @@
 <?php
+require_once 'models/Post.php';
+require_once 'models/Comment.php';
 
 function controllerHome() {
-    $posts = getPosts();
+    $posts = Post::getAll();
     require 'views/home.php';
 }
 
 function controllerPost(int $id) {
-    $post = getPost($id);
-    $comments = getComments($id);
+    $post = Post::getById($id);
+    $comments = Comment::getByPostId($id);
     require 'views/post.php';
 }
 
