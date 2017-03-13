@@ -1,5 +1,4 @@
 <?php
-require_once 'models/Model.php';
 
 class Post extends Model {
     public static function getAll() {

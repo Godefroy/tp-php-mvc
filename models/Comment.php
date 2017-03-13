@@ -1,5 +1,4 @@
 <?php
-require_once 'models/Model.php';
 
 class Comment extends Model {
     public static function getByPostId(int $post_id) {

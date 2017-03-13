@@ -1,6 +1,4 @@
 <?php
-require_once 'models/Post.php';
-require_once 'models/Comment.php';
 
 function controllerHome() {
     $posts = Post::getAll();

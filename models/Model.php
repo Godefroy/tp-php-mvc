@@ -1,5 +1,4 @@
 <?php
-require_once 'classes/NotFoundException.php';
 
 abstract class Model {
     private static $db;
