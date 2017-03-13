@@ -1,13 +1,14 @@
 <?php
+use Blog\Models;
 
 function controllerHome() {
-    $posts = Post::getAll();
+    $posts = Models\Post::getAll();
     require 'views/home.php';
 }
 
 function controllerPost(int $id) {
-    $post = Post::getById($id);
-    $comments = Comment::getByPostId($id);
+    $post = Models\Post::getById($id);
+    $comments = Models\Comment::getByPostId($id);
     require 'views/post.php';
 }
 

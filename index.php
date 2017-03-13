@@ -2,11 +2,10 @@
 
 // Autoload
 spl_autoload_register(function($classname) {
-    if (strpos($classname, 'Exception') !== false) {
-        require 'classes/' . $classname . '.php';
-    } else if (file_exists('models/' . $classname . '.php')) {
-        require 'models/' . $classname . '.php';
-    }
+    $classname = str_replace('Blog\\', '/', $classname);
+    $classname = str_replace('\\', '/', $classname);
+    $classname = ltrim($classname, '/');
+    require $classname . '.php';
 });
 
 require_once 'controllers/controller.php';
@@ -18,7 +17,7 @@ try {
     if ($action == 'post') {
         // Page Post
         if (!isset($_GET['id']) || !ctype_digit($_GET['id'])) {
-            throw new NotFoundException('Post not found');
+            throw new Blog\Exceptions\NotFoundException('Post not found');
         }
         $id = (int) $_GET['id'];
         controllerPost($id);

@@ -1,4 +1,5 @@
 <?php
+namespace Blog\Models;
 
 class Post extends Model {
     public static function getAll() {
@@ -8,7 +9,7 @@ class Post extends Model {
             FROM posts
             ORDER BY creation_date DESC
         ');
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 
     public static function getById(int $post_id) {
@@ -20,7 +21,7 @@ class Post extends Model {
         ');
         $statement->execute([$post_id]);
         if ($statement->rowCount() === 1) {
-            return $statement->fetch(PDO::FETCH_ASSOC);
+            return $statement->fetch(\PDO::FETCH_ASSOC);
         } else {
             throw new NotFoundException('Post not found');
         }

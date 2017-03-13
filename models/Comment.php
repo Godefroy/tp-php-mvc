@@ -1,4 +1,5 @@
 <?php
+namespace Blog\Models;
 
 class Comment extends Model {
     public static function getByPostId(int $post_id) {
@@ -9,6 +10,6 @@ class Comment extends Model {
             WHERE post_id = ?
         ');
         $statement->execute([$post_id]);
-        return $statement->fetchAll(PDO::FETCH_ASSOC);
+        return $statement->fetchAll(\PDO::FETCH_ASSOC);
     }
 }
