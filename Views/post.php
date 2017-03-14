@@ -1,8 +1,5 @@
 <?php
 $title = $post['title'];
-
-ob_start();
-
 ?>
 <article>
     <header>
@@ -26,7 +23,3 @@ foreach ($comments as $comment):
     </p>
 <?php
 endforeach;
-
-$content = ob_get_clean();
-
-require 'views/layout.php';

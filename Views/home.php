@@ -1,8 +1,6 @@
 <?php
 $title = 'Accueil';
 
-ob_start();
-  
 foreach ($posts as $post):
 ?>
     <article>
@@ -19,7 +17,3 @@ foreach ($posts as $post):
     <hr />
 <?php
 endforeach;
-
-$content = ob_get_clean();
-
-require 'views/layout.php';
