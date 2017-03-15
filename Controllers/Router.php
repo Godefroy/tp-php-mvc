@@ -12,8 +12,16 @@ class Router {
                 if (!isset($_GET['id']) || !ctype_digit($_GET['id'])) {
                     throw new \Blog\Exceptions\NotFoundException('Post not found');
                 }
-                $id = (int) $_GET['id'];
+                $id = (int)$_GET['id'];
                 Post::get($id);
+
+            } else if ($action == 'postComment') {
+                // Envoi d'un commentaire
+                if (!isset($_GET['id']) || !ctype_digit($_GET['id'])) {
+                    throw new \Blog\Exceptions\NotFoundException('Post not found');
+                }
+                $id = (int) $_GET['id'];
+                Post::postComment($id);
 
             } else {
                 // Page accueil

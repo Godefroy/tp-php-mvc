@@ -41,3 +41,8 @@ h1 {
 #titreBlog, #piedBlog {
     text-align: center;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+}
