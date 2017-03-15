@@ -1,14 +1,24 @@
 <?php
 namespace Blog\Models;
 
+use \Blog\Config;
+
 abstract class Model {
     private static $db;
 
     public static function getDB() {
         if (!self::$db) {
-            self::$db = new \PDO('mysql:host=localhost;dbname=tp_php_mvc;charset=utf8', 'root', 'ervbfd', [
-                \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
-            ]);
+            // Instanciation de PDO
+
+            self::$db = new \PDO(
+                sprintf(
+                    '%s:host=%s;dbname=%s;charset=utf8',
+                    Config::dbType, Config::dbHost, Config::dbName
+                ),
+                Config::dbUser, Config::dbPass,
+                [
+                    \PDO::ATTR_ERRMODE => \PDO::ERRMODE_EXCEPTION
+                ]);
         }
         return self::$db;
     }

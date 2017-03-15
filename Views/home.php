@@ -6,7 +6,7 @@ foreach ($posts as $post):
     <article>
     <header>
         <h1 class="titreBillet">
-            <a href="index.php?action=post&id=<?= $post['id'] ?>">
+            <a href="posts/<?= $post['id'] ?>">
                 <?= htmlspecialchars($post['title']) ?>
             </a>
         </h1>

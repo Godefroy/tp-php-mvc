@@ -1,5 +1,6 @@
 <?php
 namespace Blog\Views;
+use \Blog\Config;
 
 class View {
     private $name;
@@ -18,6 +19,7 @@ class View {
         
         // Génère et affiche le layout
         echo $this->generateView($this->layout_name, [
+            'baseUrl' => Config::baseUrl,
             'title' => $this->title,
             'content' => $content
         ]);
